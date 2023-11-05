@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: ${LOCAL_URL}:${LOCAL_PORT}/${DATABASE}
+    username: ${LOCAL_USERNAME}
+    password: ${LOCAL_PASSWORD}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: event_manager
+        format_sql: true
+  flyway:
+    url: ${LOCAL_URL}:${LOCAL_PORT}/${DATABASE}
+    user: ${LOCAL_USERNAME}
+    password: ${LOCAL_PASSWORD}
+    locations: classpath:db/migration/migration-postgres
+    schemas: ${SCHEMA}
+

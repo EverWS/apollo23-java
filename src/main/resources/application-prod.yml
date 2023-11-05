@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${URL}/${DATABASE}
+    username: ${USER}
+    password: ${PASSWORD}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: ${SCHEMA}
+        format_sql: true
+  flyway:
+    url: jdbc:postgresql://${URL}/${DATABASE}
+    user: ${USER}
+    password: ${PASSWORD}
+    locations: classpath:db/migration/migration-postgres
+    schemas: ${SCHEMA}
+  h2:
+    console:
+      enabled: false
